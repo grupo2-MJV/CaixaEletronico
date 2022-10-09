@@ -2,6 +2,8 @@ package com.Grupo2.CaixaEletronico;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,11 +17,12 @@ public class CaixaEletronicoApplication {
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(CaixaEletronicoApplication.class, args);
 
-		String dataInicio = "02/10/2022";
+		ContaCorrenteServices cc = new ContaCorrenteServices();
+
+		// BLOCO DE CONSULTAR EXTRATO
+		/*String dataInicio = "02/10/2022";
 		String dataFinal = "09/10/2022";
 
-
-		ContaCorrenteServices cc = new ContaCorrenteServices();
 		ExtratoResponse extratoResponse = new ExtratoResponse();
 		extratoResponse = cc.consultarExtrato(dataInicio, dataFinal);
 
@@ -36,6 +39,22 @@ public class CaixaEletronicoApplication {
 		System.out.println("Saldo final: "+extratoResponse.getSaldoAtual());
 		System.out.println(" ");
 		System.out.println("*************************************");
-	}
+		*/
 
+
+
+		//CONSULTAR SALDO ATUAL
+
+		String numoroCc = "123456789";
+		var saldo = cc.consultarSaldo(numoroCc);
+
+		System.out.println("********* CONSULTAR SALDO **********");
+		System.out.println(" ");
+		System.out.println("Numero da conta: "+ saldo.getContaCorrente());
+		System.out.println("Nome: "+ saldo.getNome());
+		System.out.println("Saldo atual: R$"+saldo.getSaldo());
+		System.out.println(" ");
+		System.out.println("************************************");
+
+	}
 }

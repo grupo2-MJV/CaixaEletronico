@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.Grupo2.CaixaEletronico.model.ContaCorrente;
 import com.Grupo2.CaixaEletronico.model.ExtratoResponse;
+import com.Grupo2.CaixaEletronico.model.ResponseEntity;
 
 public class ContaCorrenteServices {
 
@@ -47,6 +48,20 @@ public class ContaCorrenteServices {
         extratoResponse.setSaldoAtual(contaCorrente.getSaldo());
         extratoResponse.setMovimentacoes(movimentos);
         return extratoResponse;
+    }
+
+    public ResponseEntity consultarSaldo(String numeroCc) throws Exception {
+        if (contaCorrente.ValidaConta(numeroCc) == true) {
+            var saldo = String.valueOf(contaCorrente.getSaldo());
+            var nome = contaCorrente.getNomeDoCliente();
+            ResponseEntity responseEntity = new ResponseEntity();
+            responseEntity.setSaldo(saldo);
+            responseEntity.setNome("nome do Cliente");
+            responseEntity.setContaCorrente(numeroCc);
+            return responseEntity;
+        }
+        throw new Exception("numero de conta inválido, verifique corretamente os digitos.");
+        
     }
 
     
