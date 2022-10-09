@@ -1,31 +1,38 @@
 package com.Grupo2.CaixaEletronico.model;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class ContaCorrente {
 
-    private Integer numeroDaConta;
+    private String numeroDaConta;
     private Integer getNumeroAgencia;
     private String nomeDoCliente;
     private Date dataDeNascimento;
-    private Double saldo;
+    private Double saldo = 5231.00;
+    private ExtratoResponse extratoResponse;
 
-    public ContaCorrente() {
-    }
 
-    public ContaCorrente(Integer numeroDaConta, Integer getNumeroAgencia, String nomeDoCliente, Date dataDeNascimento, Double saldo) {
+    public ContaCorrente(String numeroDaConta, Integer getNumeroAgencia, String nomeDoCliente, Date dataDeNascimento,
+            Double saldo, ExtratoResponse extratoResponse) {
         this.numeroDaConta = numeroDaConta;
         this.getNumeroAgencia = getNumeroAgencia;
         this.nomeDoCliente = nomeDoCliente;
         this.dataDeNascimento = dataDeNascimento;
         this.saldo = saldo;
+        this.extratoResponse = extratoResponse;
     }
 
-    public Integer getNumeroDaConta() {
+
+    public ContaCorrente() {
+    }
+
+
+    public String getNumeroDaConta() {
         return numeroDaConta;
     }
 
-    public void setNumeroDaConta(Integer numeroDaConta) {
+    public void setNumeroDaConta(String numeroDaConta) {
         this.numeroDaConta = numeroDaConta;
     }
 
@@ -59,6 +66,32 @@ public class ContaCorrente {
 
     public void setSaldo(Double saldo) {
         this.saldo = saldo;
+    }
+    
+    public boolean ValidaConta(String cc) throws Exception {
+    	
+    	if (Objects.isNull(cc)) {
+			throw new Exception("O numero da conta corrente é obrigatórioo para realizar transações.");
+		}
+		if (cc.matches(".*[a-zA-Z]+.*")) {
+			throw new Exception("O numero da conta corrente não contém letras ou caracteres especiais.");
+		}
+		
+    	String contaCorrenteDigitos = cc.replaceAll("\\D", "").trim();
+		if (contaCorrenteDigitos.length() != 9) {
+			throw new Exception("O número da conta corrente possue 9 digitos");
+		}
+		return true;
+    }
+
+
+    public ExtratoResponse getExtratoResponse() {
+        return extratoResponse;
+    }
+
+
+    public void setExtratoResponse(ExtratoResponse extratoResponse) {
+        this.extratoResponse = extratoResponse;
     }
 
 }
