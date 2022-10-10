@@ -47,12 +47,13 @@ public class ContaCorrenteServices {
         List<String> movimentos = new ArrayList<>();
         movimentos.add("Caso o cliente tenha movimentações elas vão aparecer nessa lista.");
         Double saldoInicio = 8767.00;
+        Double saldoAtual = 5000.0D;
 
         ExtratoResponse extratoResponse = new ExtratoResponse();
         extratoResponse.setDataInicio(dataInit);
         extratoResponse.setDataFinal(dataFim);
         extratoResponse.setSaldoInicio(saldoInicio);
-        extratoResponse.setSaldoAtual(contaCorrente.getSaldo());
+        extratoResponse.setSaldoAtual(saldoAtual);
         extratoResponse.setMovimentacoes(movimentos);
         return extratoResponse;
     }
