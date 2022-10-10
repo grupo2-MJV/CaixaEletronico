@@ -46,7 +46,9 @@ public class CaixaEletronicoApplication {
 		//CONSULTAR SALDO ATUAL
 
 		String numoroCc = "123456789";
+
 		var saldo = cc.consultarSaldo(numoroCc);
+
 
 		System.out.println("********* CONSULTAR SALDO **********");
 		System.out.println(" ");

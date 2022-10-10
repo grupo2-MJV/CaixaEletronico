@@ -1,25 +1,33 @@
 package com.Grupo2.CaixaEletronico.model;
 
+import com.Grupo2.CaixaEletronico.services.ContaCorrenteServices;
+
 import java.util.Date;
 import java.util.Objects;
 
 public class ContaCorrente {
 
+    private ContaCorrenteServices services;
+
+    public ContaCorrente(ContaCorrenteServices services) {
+        this.services = services;
+    }
+
     private String numeroDaConta;
     private Integer getNumeroAgencia;
     private String nomeDoCliente;
     private Date dataDeNascimento;
-    private Double saldo = 5231.00;
+    private Double saldo;
     private ExtratoResponse extratoResponse;
 
 
     public ContaCorrente(String numeroDaConta, Integer getNumeroAgencia, String nomeDoCliente, Date dataDeNascimento,
-            Double saldo, ExtratoResponse extratoResponse) {
+            Double depositoInicial, ExtratoResponse extratoResponse) {
         this.numeroDaConta = numeroDaConta;
         this.getNumeroAgencia = getNumeroAgencia;
         this.nomeDoCliente = nomeDoCliente;
         this.dataDeNascimento = dataDeNascimento;
-        this.saldo = saldo;
+        services.depositar(depositoInicial);
         this.extratoResponse = extratoResponse;
     }
 

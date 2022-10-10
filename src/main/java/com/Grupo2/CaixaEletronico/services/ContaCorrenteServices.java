@@ -24,6 +24,13 @@ public class ContaCorrenteServices {
         return saldo;
     }
 
+    public Double depositar(Double valor) {
+        var saldo = contaCorrente.getSaldo();
+        if( valor <= 0)
+            throw new IllegalArgumentException("O valor de depósito deve ser superior a zero.");
+        return saldo += valor ;
+    }
+
     public ExtratoResponse consultarExtrato(String dataInicio, String dataFinal) throws Exception {
         if(dataInicio == null || dataFinal == null){
             throw new Exception("Não é possivel consultar extrato sem a indicação de periodo.");
