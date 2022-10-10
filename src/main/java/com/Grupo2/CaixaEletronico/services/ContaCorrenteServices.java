@@ -61,7 +61,7 @@ public class ContaCorrenteServices {
     public ResponseEntity consultarSaldo(String numeroCc) throws Exception {
         if (contaCorrente.ValidaConta(numeroCc) == true) {
             var saldo = String.valueOf(contaCorrente.getSaldo());
-            var nome = contaCorrente.getNomeDoCliente();
+
             ResponseEntity responseEntity = new ResponseEntity();
             responseEntity.setSaldo(saldo);
             responseEntity.setNome("nome do Cliente");
