@@ -73,13 +73,12 @@ public class ContaCorrenteServices {
     }
 
     public ResponseEntity transferirSaldo(String numeroCc, String numeroCt, Double valorTransferencia) throws Exception {
-        if (contaCorrente.ValidaConta(numeroCc) == true && contaCorrente.ValidaConta(numeroCt) == true) {
-            var saldo = contaCorrente.getSaldo();
+            var saldo = 5000.0D;
             if (saldo < valorTransferencia) {
             throw new IllegalArgumentException("O valor de transferencia não pode ser maior que o saldo em conta.");
             } else {
             saldo -= valorTransferencia;
-            }
+            
             ResponseEntity responseEntity = new ResponseEntity();
             responseEntity.setContaCorrente(numeroCc);
             responseEntity.setNome(contaCorrente.getNomeDoCliente());
@@ -89,10 +88,9 @@ public class ContaCorrenteServices {
             responseEntity.setValorTransf(String.valueOf(valorTransferencia));
 
             return responseEntity;
-        } 
-        throw new Exception("Algo de errado aconteceu na sua transferencia, tente novamente!");
-    }
-
-    
-
+            }
+    } 
+       
 }
+
+

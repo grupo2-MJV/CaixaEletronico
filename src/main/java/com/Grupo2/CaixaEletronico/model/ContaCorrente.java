@@ -15,14 +15,14 @@ public class ContaCorrente {
 
     private String numeroDaConta;
     private Integer getNumeroAgencia;
-    private String nomeDoCliente;
+    private String nomeDoCliente = "fulano de tal";
     private Date dataDeNascimento;
-    private Double saldo;
+    private Double saldo = 5000.0D;
     private ExtratoResponse extratoResponse;
 
 
     public ContaCorrente(String numeroDaConta, Integer getNumeroAgencia, String nomeDoCliente, Date dataDeNascimento,
-            Double depositoInicial, ExtratoResponse extratoResponse) {
+        Double depositoInicial, ExtratoResponse extratoResponse) {
         this.numeroDaConta = numeroDaConta;
         this.getNumeroAgencia = getNumeroAgencia;
         this.nomeDoCliente = nomeDoCliente;
@@ -56,10 +56,6 @@ public class ContaCorrente {
         return nomeDoCliente;
     }
 
-    public void setNomeDoCliente(String nomeDoCliente) {
-        this.nomeDoCliente = nomeDoCliente;
-    }
-
     public Date getDataDeNascimento() {
         return dataDeNascimento;
     }
@@ -72,9 +68,6 @@ public class ContaCorrente {
         return saldo;
     }
 
-    public void setSaldo(Double saldo) {
-        this.saldo = saldo;
-    }
     
     public boolean ValidaConta(String cc) throws Exception {
     	
