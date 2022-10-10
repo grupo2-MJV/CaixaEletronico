@@ -7,8 +7,10 @@ public class ResponseEntity {
     String contaCorrente;
     String Msg;
     String codeReturn;
+    String contaCorrenteTransf;
+    String nomeClienteTransf;
+    String valorTransf;
 
-    
     public ResponseEntity() {
     }
     
@@ -43,5 +45,28 @@ public class ResponseEntity {
         this.codeReturn = codeReturn;
     }
 
+    public String getContaCorrenteTransf() {
+        return contaCorrenteTransf;
+    }
+
+    public void setContaCorrenteTransf(String contaCorrenteTransf) {
+        this.contaCorrenteTransf = contaCorrenteTransf;
+    }
+
+    public String getNomeClienteTransf() {
+        return nomeClienteTransf;
+    }
+
+    public void setNomeClienteTransf(String nomeClienteTransf) {
+        this.nomeClienteTransf = nomeClienteTransf;
+    }
+
+    public String getValorTransf() {
+        return valorTransf;
+    }
+
+    public void setValorTransf(String valorTransf) {
+        this.valorTransf = valorTransf;
+    }
     
 }
